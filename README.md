@@ -5,15 +5,26 @@ Corresponding author: Siân Carey - mm16s4c@leeds.ac.uk
 
 The data use in this research is from MIMIC-III (https://mimic.physionet.org/).
 
-The code contained in this repository is detailed below.
+To recreate these results:
+1. Download MIMIC-III
+2. Find the sepsis patients in MIMIC-III using AI Clinician Code (https://github.com/matthieukomorowski/AI_Clinician/blob/master/AIClinician_sepsis3_def_160219.m) - this requires MatLab.
+3. Build the full database for required time periods using AI Clinician Code (https://github.com/matthieukomorowski/AI_Clinician/blob/master/AIClinician_mimic3_dataset_160219.m) - This requires MatLab.
+4. Ensure all required packages are downloaded. More information below.
+5. Run the Cohorts file. More information below.
+6. Run the Preprocess file. More information below.
+7. Run the RL model using RL_main_model and the Clinician model using MIMICIII_Physician. More information below.
+8. Visualise the results using Visualisation. More information below.
 
-Data is formatted using (in order):
-1. Add_vaso_fluid_1: This code requires the dataset of sepsis patients and relevant features. This code returns the dataset with additional columns for the grouped vasopressor and IV fluid dosages.
-2. Add_rewards_2: This code requires the dataset resulting from the code above. This code returns the dataset with additional columns for rewards (both intermediate and final). This code requires you to pick the weighting for the intermidiate rewards.
-3. Normalising_post_rewards_3: This code requires the dataset resulting from the code above. This code requires the patient ids for the respective chosen cohorts. This code returns scaled and unscaled normalised data for each given cohort and each test/train/validation set and the scaled normalised data with an additional column noting the change in vasopressor.
+Code here has been built off code presented by Jia (https://github.com/Yanjiayork/sepsisRL) and Raghu (https://github.com/aniruddhraghu/sepsisrl/tree/master/preprocessing)
+
+
+Details about the code in this repository are below.
 
 Maternal and matched patients are found using:
 1. Cohorts: This code requires the original sepsis data (or any dataset that is this with additional columns) and the list of pregnant ids. This code returns all the information in the original dataset for each cohort.  
+
+Data is formatted using:
+1. Preprocess: This code requires the dataset of sepsis patients and relevant features, as well as the pregnant and control cohort patients and relevant features. This code returns scaled and unscaled normalised data for each given cohort and each test/train/validation set and the scaled normalised data with an additional column noting the change in vasopressor.
 
 The RL model is run using:
 1. RL_main_model: This code requires the train/test/validate and cohort data sets that are normalised with change in vasopressor added. This code returns the actions taken by the model throughout training and to the test and cohort data sets. This code requires that you pick a number of steps to train the model for.
