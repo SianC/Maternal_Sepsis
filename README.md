@@ -1,5 +1,5 @@
 # Maternal_Sepsis
-This repository contains code associated with my work on Fair Reinforcement Learning for Maternal Sepsis.
+This repository contains code associated with my work on Fair Reinforcement Learning for Maternal Sepsis (https://doi.org/10.1101/2022.08.09.22278582).
 
 Corresponding author: Siân Carey - mm16s4c@leeds.ac.uk
 
@@ -21,10 +21,9 @@ The RL model is run using:
 The physicians decisions were estimated suing:
 1. MIMICIII_Physician: This code requires the train/test/validate and cohort data sets that are normalised with change in vasopressor added. This code returns the actions taken by the model (that estimate the original clinicians actions) throughout training and to the test and cohort data sets. This code requires that you pick a number of steps to train the model for.
 
-The visualisations were created using (order not necessary):
-1. Feature_importance: This code requires the test, train and validation data sets and their relevant actions. This code returns graphs of feature importance.
-2. Error_bars_graph: This code requires model results as above for 10 models. This code returns graphs of feature importance with error bars.
-3. Heatmaps_and_graphs: This code requires the data sets for the cohorts and the relevant actions. This code returns heatmaps for the actions of the cohorts.
+The visualisations were created using:
+1. Visualisation: This code requires the test, train, validation, pregnancy and control cohort data sets and their relevant actions for both RL model and clinician. This code returns a graph of feature importance with error bars and  heatmaps for the actions on the pregnancy and control cohorts.
+
 
 The Python packages required for this work are detailed below. (Versions as of February 2022):
 1. pandas
